@@ -33,11 +33,24 @@ with open(path) as election_file:
             Correy.append(votes)
 
 tooley_count = sum(1 for tvote in Tooley)
-li_count = sum(1 for lvote in Li)
-khan_count = sum(1 for kvote in Khan)
-correy_count = sum(1 for cvote in Correy)
+tooley_percent = tooley_count / count * 100
+print("O'Tooley: " + str(round(tooley_percent, 2)) + "%" + " " + "(" + str(tooley_count) + ")") 
 
-print(tooley_count)
-print(li_count)
-print(khan_count)
-print(correy_count)
+li_count = sum(1 for lvote in Li)
+li_percent = li_count / count * 100
+print("Li: " + str(round(li_percent, 2)) + "%" + " " + "(" + str(li_count) + ")")
+
+khan_count = sum(1 for kvote in Khan)
+khan_percent = khan_count / count * 100
+print("Khan: " + str(round(khan_percent, 2)) + "%" + " " + "(" + str(khan_count) + ")")
+
+correy_count = sum(1 for cvote in Correy)
+correy_percent = correy_count / count * 100
+print("Correy: " + str(round(correy_percent, 2)) + "%" + " " + "(" + str(correy_count) + ")")
+
+winner_list = [tooley_count, li_count, khan_count, correy_count]
+candidate_list = ["O'Tooley", "Li", "Khan", "Correy"]
+
+winner_index = winner_list.index(max(winner_list))
+winner = candidate_list[winner_index]
+print("Winner: " + winner)
